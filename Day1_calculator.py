@@ -1,21 +1,33 @@
-num1 = float(input("Enter first number: "))
-num2 = float(input("Enter second number: "))
+while True:
+    try:
+        num1 = float(input("Enter first number: "))
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
+        continue
 
-operation = input("Enter operation (+, -, *, /,//,**,%): ")
+    num2 = float(input("Enter second number: "))
+    operation = input("Enter operation (+, -, *, /,//,**,%): ")
 
-if operation == "+":
-    print(f"{num1} + {num2} = {num1 + num2}")
-elif operation == "-":
-    print(f"{num1} - {num2} = {num1 - num2}")
-elif operation == "*":
-    print(f"{num1} * {num2} = {num1 * num2}")
-elif operation == "/":
-    print(f"{num1} / {num2} = {num1 / num2}")
-elif operation == "//":
-    print(f"{num1} // {num2} = {num1 // num2}")
-elif operation == "**":
-    print(f"{num1} ** {num2} = {num1 ** num2}")
-elif operation == "%":
-    print(f"{num1} % {num2} = {num1 % num2}")
-else:
-    print("Invalid operation")
+    try:
+        if operation == "+":
+            print(f"{num1} + {num2} = {num1 + num2}")
+        elif operation == "-":
+            print(f"{num1} - {num2} = {num1 - num2}")
+        elif operation == "*":
+            print(f"{num1} * {num2} = {num1 * num2}")
+        elif operation == "/":
+            print(f"{num1} / {num2} = {num1 / num2}")
+        elif operation == "//":
+            print(f"{num1} // {num2} = {num1 // num2}")
+        elif operation == "**":
+            print(f"{num1} ** {num2} = {num1 ** num2}")
+        elif operation == "%":
+            print(f"{num1} % {num2} = {num1 % num2}")
+        else:
+            print("Invalid operation")
+    except ZeroDivisionError:
+        print("Error: Division by zero is not allowed.")
+    again = input("Do you want to perform another calculation? (yes/no): ")
+    if again.lower() == "yes":
+        break
+
